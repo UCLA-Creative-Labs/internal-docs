@@ -1,8 +1,8 @@
-# Backend CI/CD
+# Frontend CI/CD
 
 This document will detail our CI/CD model for frontend software. 
 
-- [What is CI/CD](#What-is-CI/CD?)
+- [What is CI/CD](#What-is-CICD?)
 - [Frontend Continuous Integration](#Frontend-Continuous-Integration)
   - [Mergify](#Mergify)
   - [ESLint](#ESLint)
@@ -28,7 +28,7 @@ stems from the reality that the everyone is fallable to errors. By automating ou
 integration and deployment pipeline, we remove any human error from occuring and 
 its also nice to do less work 😊
 
-## Backend Continous Integration
+## Frontend Continous Integration
 
 We handle the Continuous Integration aspects of our frontend software similar to
 that of the backend integration. 
@@ -75,7 +75,7 @@ See our [`.stylelintrc.json`](examples/.stylelintrc.json) file for more info.
 
 Remember to add a package script as follows:
 
-```json
+```
 // package.json
 {
   ...

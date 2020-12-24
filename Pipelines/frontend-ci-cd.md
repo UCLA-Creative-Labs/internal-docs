@@ -46,7 +46,7 @@ Key Aspects:
 - Mergify automatically merges Dependatbots PRs
 - Mergify automatically dismisses stale reviews
 
-See the [`.mergify.yml`](.mergify.yml) file for more info.
+See the [`.mergify.yml`](examples/.mergify.yml) file for more info.
 
 ### ESLint
 
@@ -63,14 +63,13 @@ Notable Linter Rules:
 - 2 space indentation: we like skinny, readable code
 - max line length 120: ^ 👍
 
-See our documented [`.eslintrc.js`](.eslintrc.js) and [`.eslintignore`](\
-.eslintignore) files for more info.
+See our documented [`.eslintrc.js`](examples/.eslintrc.js) and [`.eslintignore`](examples/.eslintignore) files for more info.
 
 ### StyleLint
 
 We use StyleLint for our styled components (`**/*.css` and `**/*.scss`). Our linter rules for our style files are generic at the moment. We use the [standard configuration](https://github.com/stylelint/stylelint-config-standard), however if there are any edits that you think should be made, feel free to make a PR for it!
 
-See our [`.stylelintrc.json`](.stylelintrc.json) file for more info.
+See our [`.stylelintrc.json`](examples/.stylelintrc.json) file for more info.
 
 ### Important Notes on Linters
 

@@ -9,6 +9,11 @@
   * [Versions](#versions)
   * [Lockfiles](#lockfiles)
 * [UI Framework](#ui-framework)
+  * [Do you even need a framework?](#do-you-even-need-a-framework)
+  * [React](#react)
+    * [Why React?](#why-react)
+    * [How do I use React?](#how-do-i-use-react)
+* [Styling](#styling)
 * [Bundling](#bundling)
 
 ## Introduction
@@ -152,5 +157,69 @@ In fact, you don't even need to open it, unless you would like to vet every inst
 The only times this file should be changing is if a new package or version is added to `package.json`, or if you want to manually update all your packages (in which case you simply delete and regenerate the lockfile).
 
 ## UI Framework
+
+There are tons of JavaScript UI frameworks out there, and each one has its pros and cons.
+We're not going to talk about all of them (but if you're interested in the alternatives, there are about
+[thirty](https://medium.com/javascript-in-plain-english/top-5-in-demand-javascript-frameworks-for-front-end-development-in-2020-a59c4340d082)
+[four](https://medium.com/javascript-scene/top-javascript-frameworks-and-topics-to-learn-in-2020-and-the-new-decade-ced6e9d812f9)
+[million](https://famzil.medium.com/which-front-end-framework-to-learn-in-2020-6bb795ba43b1)
+[Medium](https://medium.com/dailyjs/a-realworld-comparison-of-front-end-frameworks-2020-4e50655fe4c1)
+[articles](https://mnshjayasundara.medium.com/top-front-end-frameworks-in-2020-f18c079762b0)
+[about](https://medium.com/@Systemart/top-10-best-web-development-frameworks-in-2020-2021-657e49cc941)
+[UI](https://medium.com/@citrusbug/top-frontend-frameworks-of-2020-for-web-development-c7943f9ba1a9)
+[Frameworks](https://medium.com/better-programming/what-will-be-the-best-javascript-framework-in-2021-da4582268419)
+in 2020 alone), because we at CL use only one of them: React.
+
+But before we get into why and how we use React, let's touch a bit on...
+
+### Do you even need a framework?
+
+There is such a thing as over-engineering (trust us)---sometimes, plain old JavaScript and CSS are all you need.
+
+Before you start setting up a website using a framework, ask yourself a few questions:
+* Am I okay with a larger website (in terms of file size)?
+* Do I need the website to be highly responsive and reactive (no pun intended) to user input and interaction?
+* Is the website going to have a large number of elements which need to maintain state and complex relationships between each other?
+* Do I already know [insert framework here]?
+
+If you answered "no", "not really", or "meh" to all of these, you _don't need a framework_.
+If you didn't answer "yes" to all of these, think a little more about if you really need a framework.
+But if you answered "yes" to all of these, then keep reading.
+
+### React
+
+[React](https://reactjs.org/) (also known as ReactJS) is a very popular open-source JavaScript library for building complex user interfaces, started and maintained by Facebook (interested in contributing? see [here](https://github.com/facebook/react)).
+It's also our go-to UI framework for building more complex websites.
+
+#### Why React?
+
+There are a lot of reasons to use it (and a lot of reasons not to), but the biggest reason we use it here at CL is simply because it's what we're all most knowledgeable about and comfortable with.
+But if you're starting a project and you prefer Angular or Vue or something else, then by all means go for it: **the best framework is the one you know**.
+
+#### How do I use React?
+
+This isn't really the place for a full-fledged React tutorial; the documentation has a couple of great starting points for learning the basics (see [here](https://reactjs.org/docs/hello-world.html) and/or [here](https://reactjs.org/tutorial/tutorial.html)).
+However, we can touch upon this just briefly; consider anything that's in italics as a piece of terminology for you to look up if you want more information and direction.
+
+Websites are represented in an interface known as the _Document Object Model_, or _DOM_.
+Usually, this DOM is expressed in HTML and is what you see when you load any website; what React offers is a _virtual_ DOM, i.e. (roughly speaking) it uses its own internal "fake" DOM, applies any changes that modify the appearance and/or structure of the DOM to that "fake" DOM, and then dynamically replaces the real DOM that's displayed in your browser with the fake one.
+
+The basis of React is the _component_, which is essentially a custom HTML _element_ that you can define and structure yourself.
+You can have a component contain other components, forming what is called the _component tree_.
+Each component can maintain its own _state_, and modify and read from that state whenever necessary; this forms the core of implementing user interaction in a React app.
+Each component can also take its own _properties_, which effectively act as fancier versions of regular HTML _attributes_.
+
+Each component has a lifecycle:
+1. The component **mounts** (wherein it is _rendered_ for the first time).
+2. The component **updates** whenever its state or properties change (also known as _re-rendering_).
+3. The component **unmounts** (wherein it is removed from the DOM).
+
+Traditionally, each React component was its own class (in an object-oriented sense), with member functions such as `componentDidUpdate`, `componentDidMount`, and so on to manage the component based on each stage in its lifecycle.
+However, we use something a little different in our projects.
+
+Modern React versions introduced what are known as _functional components_, where each component is actually just a function which returns a component.
+This function would then be called whenever the component is re-rendered.
+This model eschews dedicated lifecycle methods in favor of more dynamic functions called _hooks_, which do away with the separation of state/property changes from component updates and allow you to hook into (pun intended this time) those changes directly.
+Again, the [official React documentation](https://reactjs.org/docs/hooks-intro.html) is a great resource to learn more about this.
 
 ## Bundling

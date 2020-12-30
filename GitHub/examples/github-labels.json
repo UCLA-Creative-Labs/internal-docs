@@ -1,0 +1,107 @@
+[
+  {
+    "name": "bug",
+    "color": "d73a4a",
+    "description": "this issue is a bug"
+  },
+  {
+    "name": "chore",
+    "color": "bfdadc",
+    "description": "documentation and other boring stuff"
+  },
+  {
+    "name": "dependencies",
+    "color": "0366d6",
+    "description": "Pull requests that update a dependency file"
+  },
+  {
+    "name": "effort/large",
+    "color": "0052cc",
+    "description": "large work item - over a week"
+  },
+  {
+    "name": "effort/medium",
+    "color": "0052cc",
+    "description": "medium work item - around a week"
+  },
+  {
+    "name": "effort/small",
+    "color": "0052cc",
+    "description": "small work item - around one to two nights"
+  },
+  {
+    "name": "feature",
+    "color": "fbca04",
+    "description": "an improvement to add"
+  },
+  {
+    "name": "good first issue",
+    "color": "7057ff",
+    "description": "Good for newcomers"
+  },
+  {
+    "name": "guidance",
+    "color": "b60205",
+    "description": "this requires more guidance"
+  },
+  {
+    "name": "in-progress",
+    "color": "fef2c0",
+    "description": "this is in progress"
+  },
+  {
+    "name": "needs-design",
+    "color": "fef2c0",
+    "description": "this needs lofi/hifi design"
+  },
+  {
+    "name": "needs-triage",
+    "color": "c2e0c6",
+    "description": "this issue needs to triaged"
+  },
+  {
+    "name": "on-hold",
+    "color": "e87571",
+    "description": "this issue is waiting on something else"
+  },
+  {
+    "name": "p0",
+    "color": "000000",
+    "description": "needs to be done ASAP"
+  },
+  {
+    "name": "p1",
+    "color": "000000",
+    "description": "needs to be done relatively soon"
+  },
+  {
+    "name": "p2",
+    "color": "000000",
+    "description": "could wait a while"
+  },
+  {
+    "name": "p3",
+    "color": "000000",
+    "description": "we'll do this at some point"
+  },
+  {
+    "name": "pr/do-not-merge",
+    "color": "a5134e",
+    "description": "this pr requires approval from another maintainer"
+  },
+  {
+    "name": "pr/no-squash",
+    "color": "a5134e",
+    "description": "do not squash the commits of this pr"
+  },
+  {
+    "name": "pr/work-in-progress",
+    "color": "a5134e",
+    "description": "this pr is still in progress"
+  },
+  {
+    "name": "tracking",
+    "color": "0e8a16",
+    "description": "issues that track a subject or multiple issues"
+  }
+]

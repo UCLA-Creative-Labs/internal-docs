@@ -42,8 +42,6 @@ class LabelMaker():
     self._delete_labels()
     self._create_labels()
 
-
-
 if __name__ == "__main__":
   parser = argparse.ArgumentParser(description='Automatically create GitHub Labels for a given repository')
   parser.add_argument('input', metavar='N', type=str, nargs='+',

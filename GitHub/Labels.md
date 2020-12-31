@@ -94,4 +94,5 @@ python3 label-maker.py <repository_name> <repository_name> ...
 ```
 
 **Note: THIS WILL DELETE ALL LABELS IN THE REPOSITORY**
+
 **Note: You can set the labels to more than one repository in one call**

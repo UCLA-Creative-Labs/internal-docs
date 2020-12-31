@@ -4,9 +4,11 @@ import json
 from github import Github
 from dotenv import load_dotenv
 
-load_dotenv()
-
 class LabelMaker():
+  '''
+  An object to create labels for a GitHub Repository in the Creative Labs
+  Organization
+  '''
   def __init__(self):
     self.signin()
     with open('github-labels.json') as file:
@@ -43,6 +45,8 @@ class LabelMaker():
     self._create_labels()
 
 if __name__ == "__main__":
+  load_dotenv()
+
   parser = argparse.ArgumentParser(description='Automatically create GitHub Labels for a given repository')
   parser.add_argument('input', metavar='N', type=str, nargs='+',
                         help='A list of repository names to configure')

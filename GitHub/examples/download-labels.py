@@ -4,11 +4,12 @@ import json
 from github import Github
 from dotenv import load_dotenv
 
-load_dotenv()
 
 def download_labels(repo, output_file='github-labels.json'):
+  # Sign in with env ACCESS_TOKEN
   access_token = os.getenv("ACCESS_TOKEN")
   cl = Github(access_token).get_organization('UCLA-Creative-Labs')
+
   try:
     print(f'Getting labels...')
     labels = cl.get_repo(repo).get_labels()
@@ -26,6 +27,8 @@ def download_labels(repo, output_file='github-labels.json'):
     print(f'Failed to get the labels from {repo}')
 
 if __name__ == "__main__":
+  load_dotenv()
+  
   parser = argparse.ArgumentParser(description='Automatically create GitHub Labels for a given repository')
   parser.add_argument('--output', '-o', type=str, default='github-labels.json',
                         help='The output file')

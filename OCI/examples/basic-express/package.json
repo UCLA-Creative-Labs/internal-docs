@@ -1,0 +1,12 @@
+{
+  "name": "basic-express",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "prod": "NODE_ENV=production node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

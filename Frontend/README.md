@@ -11,9 +11,6 @@
 * [UI Framework](#ui-framework)
   * [Do you even need a framework?](#do-you-even-need-a-framework)
   * [React](#react)
-    * [Why React?](#why-react)
-    * [How do I use React?](#how-do-i-use-react)
-* [Styling](#styling)
 * [Bundling](#bundling)
 
 ## Introduction
@@ -156,6 +153,15 @@ Also, 99.999% of the time, you do not need to manually modify a generated lockfi
 In fact, you don't even need to open it, unless you would like to vet every installed dependency yourself.
 The only times this file should be changing is if a new package or version is added to `package.json`, or if you want to manually update all your packages (in which case you simply delete and regenerate the lockfile).
 
+### Aside: Overreliance on Packages
+
+While it is good to use packages, as you want to avoid reinventing the proverbial wheel and wasting development time and energy, there is such a thing as too many packages.
+When you use too many packages, you open yourself up to a few problems:
+* The size of your website's files will balloon, which mean your website will take longer to load for users. The user experience suffers as a result.
+* You may lose out on much-needed flexibility if you choose to implement an important feature of your website using a package. Home-grown functionality allows you to have very fine-grained control over how it works, especially in tandem with the rest of your project.
+* Package dependencies are _transitive_, meaning whenever you install one package, you install all its dependencies, recursively. This means you open yourself up to running the risk of installing malicious code (malicious either to your local system or to your website and its users), so exercise caution.
+* More packages installed means more packages to keep track of. It's just more mental load that might not be necessary.
+
 ## UI Framework
 
 There are tons of JavaScript UI frameworks out there, and each one has its pros and cons.
@@ -223,3 +229,33 @@ This model eschews dedicated lifecycle methods in favor of more dynamic function
 Again, the [official React documentation](https://reactjs.org/docs/hooks-intro.html) is a great resource to learn more about this.
 
 ## Bundling
+
+As the size and complexity of a website (especially one that utilizes a heavier UI framework like React) increases, it becomes harder and harder to manage.
+In such cases, it is helpful to use something called a "bundler", which essentially takes your website's various script files and stylesheets, and consolidates them into tightly-packaged "bundles" (often simply a single script file and stylesheet).
+
+### Why use a bundler?
+
+In addition to consolidating what could be a large number of scripts and stylesheets into a handful of easily-distributable bundles, bundlers are useful for other things.
+
+For one, bundlers often vastly simplify the development process by offering various commands which allow you to easily produce and test development and production builds for your website.
+We'll go over what the implications of this are in the next section, **Webpack**.
+
+Bundlers can also be used to automatically _minify_ and _obfuscate_ your code:
+* **Minification** is taking a file (such as a JavaScript script) and removing all unnecessary whitespace, unused variables, etc. This can drastically reduce the file sizes of your scripts, greatly improving user experience.
+* **Obfuscation** (which goes hand in hand with minification) performs a series of operations on your code, such as replacing all identifiers with unrelated single characters or rearranging code that doesn't need to be executed in the order it was specified, such that the code becomes very difficult to decipher.
+
+### Webpack
+
+There are lots of bundlers out there, such as [Parcel](https://parceljs.org/) or [rollup.js](https://rollupjs.org/guide/en/).
+Here at CL, our bundler of choice is [Webpack](https://webpack.js.org/).
+Again, there are definitely pros and cons for each bundler (and more millions of Medium article comparisons), but we use Webpack just cause that's what we're used to.
+
+#### How to use Webpack
+
+The best way to learn the ins and outs of Webpack is once again their [official documentation and guides](https://webpack.js.org/guides/).
+
+To install Webpack, you need to---you guessed it---use a package manager.
+There are multipl
+
+The basis of Webpack is the Webpack configuration file, usually named something like `webpack.conf.js`.
+This configuration file

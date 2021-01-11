@@ -9,21 +9,24 @@ class LabelMaker():
   An object to create labels for a GitHub Repository in the Creative Labs
   Organization
   '''
-  def __init__(self):
-    self.signin()
+  def __init__(self, organization):
+    self.signin(organization)
     with open('github-labels.json') as file:
       self.github_labels = json.load(file)
 
-  def signin(self):
+  def signin(self, organization):
     access_token = os.getenv("ACCESS_TOKEN")
-    self.cl = Github(access_token).get_organization('UCLA-Creative-Labs')
+    if organization: 
+      self.git = Github(access_token).get_organization(organization)
+    else:
+      self.git = Github(access_token).get_user()
 
   def _check_repo(self, repo_name):
     try:
-      self.current_repo = self.cl.get_repo(repo_name)
+      self.current_repo = self.git.get_repo(repo_name)
       return True
     except:
-      print(f' !! Repo {repo_name} is not in the Creative Labs GitHub Repository')
+      print(f' !! Repo {repo_name} is not a valid GitHub Repository')
       return False
 
   def _delete_labels(self):
@@ -50,9 +53,11 @@ if __name__ == "__main__":
   parser = argparse.ArgumentParser(description='Automatically create GitHub Labels for a given repository')
   parser.add_argument('input', metavar='N', type=str, nargs='+',
                         help='A list of repository names to configure')
+  parser.add_argument('--organization', '-o', type=str,
+                        help='The organization to signin to')
   args = parser.parse_args()
   
-  label = LabelMaker()
+  label = LabelMaker(args.organization)
   for name in args.input:
     print(f'Running script on repo: {name}')
     label.run(name)

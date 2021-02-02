@@ -302,4 +302,36 @@ below.
       - ssh-add /tmp/deploy_rsa
     ```
 
+4. Keep variables secret
+
+    If you are looking to save access keys are other private variables, utilize the
+    `travis encrypt` command to encrypt your secrets into the PATH environment.
+
+    ```sh
+    travis encrypt KEEP_ME_SAFE="superSecretPassword" --add
+    ```
+  
+    And then to add the following script to add your configuration to the
+    `~/.aws/credentials` file
+
+    `scripts/credentials.sh`
+    ```sh
+    #!/bin/bash
+
+    mkdir -p ~/.aws
+
+    cat ~/.aws/credentials << EOL
+    [default]
+    aws_access_key_id = ${AWS_ACCESS_KEY_ID}
+    aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
+    EOL
+    ```
+
+    Then, add the script to your before_install script
+
+    ```yml
+    before_install:
+      - bash scripts/credentials.sh
+    ```
+
 For more guidance on deploying with Travis, checkout this amazing [blog post](https://dev.to/gortron/deploying-to-aws-with-travis-via-ssh-315a).

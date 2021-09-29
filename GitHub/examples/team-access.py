@@ -47,7 +47,7 @@ class AccessGranter():
   
   def run(self, allFlag, repositories):
     if allFlag:
-      repositories = self.git.get_repos(type='public')
+      repositories = self.git.get_repos(type='all')
 
     for repo in repositories:
       print(f'Granting {self.team.name} {self.permissions.value} permissions to {repo.name}')

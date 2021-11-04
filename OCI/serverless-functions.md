@@ -1,18 +1,20 @@
 # Serverless (Cloud) Functions
 
-Serverless functions are used and maintained on an infrastructure (OCI) so that a new server is spun up each time an application is accessed. This makes it so that it is not necessary to have an instance running at all times, and used when no data needs to be stored from session to session as serverless functions are stateless.
+Serverless functions are used and maintained on an infrastructure (OCI in our case) so that a new server is spun up each time an application is accessed. This makes it so that it is not necessary to have an instance running at all times. Serverless functions are used when no data needs to be stored from session to session as they are stateless.
 
 Some official Oracle documentation on creating serverless functions can be found [here](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsquickstartlocalhost.htm).
 
-There are a variety of ways to invoke the serverless function that can be found [here](https://blogs.oracle.com/developers/post/the-complete-guide-to-invoking-serverless-oracle-functions#invoking-with-http-requests-via-api-gateway).
+There are a variety of ways to invoke the serverless function that can be found in greater detail [here](https://blogs.oracle.com/developers/post/the-complete-guide-to-invoking-serverless-oracle-functions#invoking-with-http-requests-via-api-gateway).
 
 ## Function Setup
 
 Note: The configuration and authentication steps are not necessary if logged in through the OCI Cloud Shell.
 
-Following the linked tutorial above, you should create a compartment, VCN, and application in the compartment. Then, you should setup docker and download API key and configuration information. The config information should be put into the ~/.oci directory, into the ~/.oci/config file. 
+Following the linked tutorial above, you should create a compartment, VCN, and application within that compartment. Then, you should setup docker and download an API key and the configuration information. The config information should be put into the ~/.oci directory, into the ~/.oci/config file. 
 
 You should then setup the fn (contexts, auth token, login to registry through docker).
+
+### Function Creation
 
 Then, create the function. 
 
@@ -44,7 +46,7 @@ To be able to access the function through a web browser, you need to set the cor
 ALLOW any-user to use functions-family in compartment aurgy where ALL { request.principal.type = 'ApiGateway' }
 ```
 
-### 
+### HTTP Request from Gateway
 
 You can invoke functions via HTTP Request through the OCI API Gateway. Create the public gateway and inside that gateway, create a deployment. 
 

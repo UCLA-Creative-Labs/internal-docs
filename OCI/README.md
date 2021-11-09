@@ -10,3 +10,4 @@ CL developers from getting lost.
 | [Firewall](firewall.md) | Handling a compute instances firewall rules. |
 | [SSH Issues](ssh.md) | Solutions to ssh problems |
 | [References](references.md) | Some helpful links |
+| [JSON Database](autojson-database.md) | Manipulating the OCI Autonomous JSON Database|
